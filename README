@@ -1,8 +1,22 @@
 Welcome to the Interview repository Level-1
+# Running the Project
 
+Install dependencies:
 
-Configuration
-`npm install'
+```
+npm install
+```
 
+Start the server:
 
-That is is good luck !
+```
+node server.js
+```
+
+Server runs on:
+
+```
+http://localhost:3000
+```
+
+---
