@@ -1,4 +1,5 @@
 import express from "express";
+import { getNumber } from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -28,5 +29,7 @@ router.post("/", (req, res) => {
     user
   });
 });
+
+router.get("/number", getNumber);
 
 export default router;
