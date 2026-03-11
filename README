@@ -1,8 +1,226 @@
-Welcome to the Interview repository Level-1
+---
 
+# Backend Intern Interview Exercise
 
-Configuration
-`npm install'
+This repository contains a **very simple Node.js + Express server** used as a technical exercise during the backend intern interview.
 
+The goal of this exercise is to evaluate the candidate’s understanding of:
 
-That is is good luck !
+* Basic Node.js project structure
+* Express routing
+* Controllers vs routes
+* Writing simple API endpoints
+* Basic coding ability
+
+---
+
+# Project Structure
+
+```
+project
+│
+├─ controllers
+│  └─ userController.js
+│
+├─ routes
+│  ├─ index.js
+│  └─ user.js
+│
+├─ server.js
+└─ package.json
+```
+
+### server.js
+
+Entry point of the application.
+Responsible for:
+
+* Creating the Express app
+* Registering middleware
+* Mounting routes
+* Starting the server
+
+### routes/
+
+Contains the API route definitions.
+
+Routes should only handle:
+
+* endpoint definitions
+* calling controllers
+
+### controllers/
+
+Contains the business logic for each route.
+
+Controllers should:
+
+* process requests
+* return responses
+* contain minimal logic
+
+---
+
+# Level 1 Interview Question
+
+### Objective
+
+Explain the structure of this repository.
+
+The candidate should be able to explain:
+
+* What **server.js** does
+* What **routes** are responsible for
+* What **controllers** are responsible for
+* Why separating routes and controllers is useful
+
+Example discussion points:
+
+* Separation of concerns
+* Maintainability
+* Scalability for larger applications
+
+---
+
+# Level 2 Interview Question (Coding Task)
+
+### Task
+
+Implement a new endpoint that **increments a counter every time it is called**.
+
+### Route
+
+```
+GET /users/counter
+```
+
+### Expected behavior
+
+First request:
+
+```
+{ "counter": 1 }
+```
+
+Second request:
+
+```
+{ "counter": 2 }
+```
+
+Third request:
+
+```
+{ "counter": 3 }
+```
+
+### Requirements
+
+* Follow the existing project structure
+* Implement logic inside a **controller**
+* Register the route inside **routes/user.js**
+* Store the counter **in memory**
+
+---
+
+# Alternative Level 2 Question
+
+Instead of the counter problem, the candidate may be asked to implement:
+
+### Add Two Numbers Endpoint
+
+Route:
+
+```
+GET /users/add?a=5&b=3
+```
+
+Expected response:
+
+```
+{ "result": 8 }
+```
+
+### Requirements
+
+* Read query parameters
+* Convert values to numbers
+* Return JSON response
+
+Follow-up question:
+
+> What happens if the user sends non-numeric values?
+
+---
+
+# Optional Level 3 Question
+
+If the candidate performs well, ask them to implement a **simple in-memory users system**.
+
+### Data Structure
+
+```
+{
+  id: number,
+  name: string
+}
+```
+
+### Required Endpoints
+
+```
+GET /users
+POST /users
+DELETE /users/:id
+```
+
+### Requirements
+
+* Store users in memory
+* Handle route parameters
+* Return proper JSON responses
+
+---
+
+# What We Look For
+
+Strong candidates typically:
+
+* Ask clarifying questions
+* Follow the existing structure
+* Separate logic properly
+* Return JSON responses
+* Handle basic edge cases
+
+Weak candidates often:
+
+* Write everything inside the route file
+* Ignore project structure
+* Return plain strings instead of JSON
+* Skip validation
+
+---
+
+# Running the Project
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start the server:
+
+```
+node server.js
+```
+
+Server runs on:
+
+```
+http://localhost:3000
+```
+
+---
+
+If you'd like, I can also help you add a **Level 4 question that tests real backend engineering thinking (middleware, validation, error handling, async code)** which usually separates strong interns from average ones.
