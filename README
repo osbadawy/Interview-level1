@@ -1,3 +1,5 @@
+Here is an **updated README.md** with a strong **Level 4 question** added. Level 4 focuses on **real backend engineering practices** like middleware, validation, and error handling.
+
 ---
 
 # Backend Intern Interview Exercise
@@ -11,6 +13,7 @@ The goal of this exercise is to evaluate the candidate’s understanding of:
 * Controllers vs routes
 * Writing simple API endpoints
 * Basic coding ability
+* Backend engineering best practices
 
 ---
 
@@ -32,8 +35,7 @@ project
 
 ### server.js
 
-Entry point of the application.
-Responsible for:
+Entry point of the application. Responsible for:
 
 * Creating the Express app
 * Registering middleware
@@ -182,6 +184,92 @@ DELETE /users/:id
 
 ---
 
+# Level 4 Interview Question (Advanced Backend Practices)
+
+### Task
+
+Add **request validation middleware** for creating users.
+
+Currently the system allows creating users without validation. Your task is to implement middleware that validates incoming requests.
+
+### Example Request
+
+```
+POST /users
+```
+
+Body:
+
+```
+{
+  "name": "Alice"
+}
+```
+
+### Validation Rules
+
+1. `name` must exist
+2. `name` must be a string
+3. `name` must be at least 2 characters long
+
+### Expected Behavior
+
+Valid request:
+
+```
+POST /users
+{
+  "name": "Alice"
+}
+```
+
+Response:
+
+```
+{
+  "id": 1,
+  "name": "Alice"
+}
+```
+
+Invalid request:
+
+```
+POST /users
+{
+  "name": ""
+}
+```
+
+Response:
+
+```
+{
+  "error": "Name must be at least 2 characters long"
+}
+```
+
+### Requirements
+
+* Implement validation using **middleware**
+* Middleware should run **before the controller**
+* Return appropriate error responses
+* Do not place validation logic directly inside the controller
+
+### Suggested Folder Structure
+
+```
+project
+│
+├─ controllers
+├─ routes
+├─ middleware
+│  └─ validateUser.js
+└─ server.js
+```
+
+---
+
 # What We Look For
 
 Strong candidates typically:
@@ -191,6 +279,7 @@ Strong candidates typically:
 * Separate logic properly
 * Return JSON responses
 * Handle basic edge cases
+* Understand middleware
 
 Weak candidates often:
 
@@ -198,6 +287,7 @@ Weak candidates often:
 * Ignore project structure
 * Return plain strings instead of JSON
 * Skip validation
+* Mix validation and business logic
 
 ---
 
@@ -222,5 +312,3 @@ http://localhost:3000
 ```
 
 ---
-
-If you'd like, I can also help you add a **Level 4 question that tests real backend engineering thinking (middleware, validation, error handling, async code)** which usually separates strong interns from average ones.
